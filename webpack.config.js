@@ -1,17 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BabelMinifyPlugin = require('babel-minify-webpack-plugin');
 const path = require('path');
 
 module.exports = {
    entry: {
-      app: path.join(__dirname, "src", "index.js")
+      polyfills: path.join(__dirname, "src", "polyfills.js"),
+      index: path.join(__dirname, "src", "index.js"),
+      app: path.join(__dirname, "src", "App", "index.js")
    },
    output: {
       path: path.join(__dirname, "build"),
       publicPath: "/",
-      filename: "bundle.js"
+      filename: "[name].bundle.js"
    },
-   target: "node",
    devServer: {
       contentBase: path.join(__dirname, "build"),
       compress: true,
@@ -24,6 +26,7 @@ module.exports = {
    },
    plugins: [
       new CleanWebpackPlugin(),
+      new BabelMinifyPlugin(),
       new HtmlWebpackPlugin({
          template: path.join(__dirname, "src", "index.html"),
          filename: "index.html"
