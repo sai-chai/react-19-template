@@ -1,16 +1,21 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-   entry: "./src/index.js",
+   entry: {
+      app: path.join(__dirname, "src", "index.js")
+   },
    output: {
       path: path.join(__dirname, "build"),
       publicPath: "/",
       filename: "bundle.js"
    },
+   target: "node",
    devServer: {
       contentBase: path.join(__dirname, "build"),
       compress: true,
+      hot: true,
       port: 3000
    },
    devtool: "inline-source-map",
@@ -18,9 +23,10 @@ module.exports = {
       poll: 5000
    },
    plugins: [
-      new HtmlWebPackPlugin({
-         template: "./src/index.html",
-         filename: "./index.html"
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+         template: path.join(__dirname, "src", "index.html"),
+         filename: "index.html"
       })
    ],
    resolve: {
@@ -53,12 +59,12 @@ module.exports = {
             ]
          },
          {
-            test: /\.(png|jpg|gif)$/,
-            use: [
-               {
-                  loader: "file-loader"
-               }
-            ]
+            test: /\.(png|jpe?g|gif)$/,
+            use: ["file-loader"]
+         },
+         {
+            test: /\.svg$/,
+            use: ['svg-inline-loader?classPrefix&idPrefix']
          }
       ]
    }
