@@ -2,6 +2,10 @@
   "name": "react-19-template",
   "version": "0.1.0",
   "description": " A template of a React, Babel, and Webpack app using bleeding-edge packages",
+  "repository": {
+     "type": "git",
+     "url": "https://github.com/sai-chai/react-19-template.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "npm run lint && webpack-dev-server --open --mode development",
