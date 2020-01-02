@@ -3,15 +3,18 @@ module.exports = {
       [
          "@babel/preset-env",
          {
+            useBuiltIns: "usage",
             corejs: 3,
-            useBuiltIns: "entry",
-            targets: [
-               "> 5%",
-               "not dead"
-            ]
-         }
+            targets: "> 5% and not dead",
+         },
       ],
-      "@babel/preset-react"
+      "@babel/preset-react",
    ],
-   plugins: ["babel-plugin-styled-components"]
+   plugins: [
+      [
+         "babel-plugin-styled-components",
+         { displayName: true },
+      ],
+      "@babel/plugin-syntax-dynamic-import",
+   ],
 };

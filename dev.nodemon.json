@@ -1,0 +1,11 @@
+{
+   "ignore": [
+      "*.test.js",
+      ".prettierrc",
+      "babel.config.js",
+      "jest.config.js",
+      "build/*",
+      "src/*"
+   ],
+   "delay": "1500"
+}
