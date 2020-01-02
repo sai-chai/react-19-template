@@ -12,6 +12,7 @@
       }
    },
    "rules": {
-      "indent": ["error", 3]
+      "indent": ["error", 3],
+      "comma-dangle": ["error", "always-multiline"]
    }
 }

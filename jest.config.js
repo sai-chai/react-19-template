@@ -28,7 +28,7 @@ module.exports = {
 
    // An array of regexp pattern strings used to skip coverage collection
    coveragePathIgnorePatterns: [
-      "/node_modules/"
+      "/node_modules/",
    ],
 
    // A list of reporter names that Jest uses when writing coverage reports
@@ -66,7 +66,7 @@ module.exports = {
    // An array of directory names to be searched recursively up from the requiring module's location
    moduleDirectories: [
       "node_modules",
-      "src"
+      "src",
    ],
 
    // An array of file extensions your modules use
@@ -127,16 +127,20 @@ module.exports = {
    // setupFiles: [],
 
    // A list of paths to modules that run some code to configure or set up the testing framework before each test
-   // setupFilesAfterEnv: [],
+   // setupFilesAfterEnv: ["jest-enzyme", "<rootDir>/test_utils/jest.setup.js"],
 
    // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-   // snapshotSerializers: [],
+   // snapshotSerializers: [
+   //    "enzyme-to-json/serializer",
+   // ],
 
    // The test environment that will be used for testing
-   testEnvironment: "node",
+   // testEnvironment: "enzyme",
 
    // Options that will be passed to the testEnvironment
-   // testEnvironmentOptions: {},
+   // testEnvironmentOptions: {
+   //    enzymeAdapter: "react16",
+   // },
 
    // Adds a location field to test results
    // testLocationInResults: false,
@@ -144,13 +148,13 @@ module.exports = {
    // The glob patterns Jest uses to detect test files
    testMatch: [
       "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)+(spec|test).[tj]s?(x)"
+      "**/?(*.)+(spec|test).[tj]s?(x)",
    ],
 
    // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
    testPathIgnorePatterns: [
-      "/node_modules/"
-   ]
+      "/node_modules/",
+   ],
 
    // The regexp pattern or array of patterns that Jest uses to detect test files
    // testRegex: [],
