@@ -1,6 +1,6 @@
 {
    "name": "react-19-template",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": " A template of a React, Babel, and Webpack app using bleeding-edge packages",
    "repository": {
       "type": "git",
