@@ -10,7 +10,7 @@ const path = require('path');
 const root = path.resolve();
 
 const config = {
-   mode: process.env.NODE_ENV,
+   mode: process.env.NODE_ENV || "production",
    entry: {
       polyfills: path.join(root, "src", "polyfills.js"),
       index: path.join(root, "src", "client", "index.js"),
