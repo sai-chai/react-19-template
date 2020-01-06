@@ -8,6 +8,9 @@
    },
    "main": "index.js",
    "scripts": {
+      "prestart": "npm run lint",
+      "prebuild": "npm run lint",
+      "preversion": "npm run lint",
       "start": "npm run lint && cross-env NODE_ENV=production node ./server.js",
       "start:prod": "npm run lint && cross-env NODE_ENV=production nodemon ./server.js",
       "start:dev": "npm run lint && cross-env NODE_ENV=development nodemon ./server.js --ignore src/*",
